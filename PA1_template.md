@@ -28,7 +28,7 @@ totals<- group_by(df,date) %>% summarise(TotalStepsPerDay=sum(steps))
 with(totals, hist(totals$TotalStepsPerDay))
 ```
 
-![](PA1_template_files/figure-html/mean total steps-1.png)<!-- -->
+![](PA1_template_files/figure-html/meantotalsteps-1.png)<!-- -->
 
 ```r
 summary(totals$TotalStepsPerDay)[3:4]
@@ -51,7 +51,7 @@ avePer5min<-group_by(df,interval) %>% summarise(aver=mean(steps))
 with(avePer5min, plot(interval, aver, type='l'))
 ```
 
-![](PA1_template_files/figure-html/average daily-1.png)<!-- -->
+![](PA1_template_files/figure-html/averagedaily-1.png)<!-- -->
 
 The following code tells us the 5-minute interval, on average across all the days in the dataset, which contains the maximum number of steps (the busiest part of the day). 
 
@@ -106,7 +106,7 @@ totalsImp<- group_by(dfAll,date) %>% summarise(TotalStepsPerDay=sum(steps))
 with(totalsImp, hist(TotalStepsPerDay))
 ```
 
-![](PA1_template_files/figure-html/mean total steps imputed-1.png)<!-- -->
+![](PA1_template_files/figure-html/meantotalstepsimputed-1.png)<!-- -->
 
 ```r
 summary(totalsImp$TotalStepsPerDay)[3:4]
@@ -151,6 +151,6 @@ bothavePer5min<-rbind(wdsavePer5min,wesavePer5min) %>% transform(wdOrwe=factor(w
 with(bothavePer5min, xyplot(aver ~ interval | wdOrwe, type="l", layout=c(1,2)))
 ```
 
-![](PA1_template_files/figure-html/make facet plot-1.png)<!-- -->
+![](PA1_template_files/figure-html/makefacetplot-1.png)<!-- -->
 
-The most obvious difference in activity is that **at the weekend the activity is more spread out through the day** wheras during the weekdays the afternoon is quite sedentary**.
+The most obvious difference in activity is that **at the weekend the activity is more spread out through the day** wheras during the weekdays the afternoon is quite sedentary.
